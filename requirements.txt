@@ -1,0 +1,6 @@
+requests_html
+requests
+pandas
+tqdm
+pathlib
+bs4
