@@ -4,6 +4,7 @@ from gensim import corpora,models,similarities
 from gensim.utils import tokenize
 import nltk
 nltk.download('wordnet')
+nltk.download('stopwords')
 from nltk.corpus import stopwords
 import pymorphy2
 from tqdm import tqdm
