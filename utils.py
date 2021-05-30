@@ -7,6 +7,7 @@ nltk.download('stopwords')
 from nltk.corpus import stopwords
 import pymorphy2
 from tqdm import tqdm
+import numpy as np
 import os
 from pathlib import PurePath
 from typing import List
@@ -48,3 +49,8 @@ def form_corpus(df: pd.DataFrame) -> List[str]:
             class_corpus += each_text_list
         corpus.append(class_corpus)
     return corpus
+
+def softmax(x):
+    """Compute softmax values for each sets of scores in x."""
+    e_x = np.exp(x - np.max(x))
+    return e_x / e_x.sum()
