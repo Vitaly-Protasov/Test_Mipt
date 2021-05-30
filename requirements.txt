@@ -4,3 +4,6 @@ pandas
 tqdm
 pathlib
 bs4
+pymorphy2
+nltk
+gensim
