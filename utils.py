@@ -37,3 +37,14 @@ def make_df_from_files(folder_names: List[str]) -> pd.DataFrame:
             df['file_text'].append(f_text)
             df['file_class'].append(folder_name)
     return pd.DataFrame(df)
+
+
+def form_corpus(df: pd.DataFrame) -> List[str]:
+    corpus = []
+    for i in df.file_class.unique():
+        class_corpus = []
+        class_corpus_lists = list(df[df.file_class == i].tokens)
+        for each_text_list in class_corpus_lists:
+            class_corpus += each_text_list
+        corpus.append(class_corpus)
+    return corpus
