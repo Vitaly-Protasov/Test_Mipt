@@ -2,6 +2,7 @@ from collections import Counter
 import numpy as np
 from tqdm import tqdm
 from typing import List, Dict, Tuple
+from utils import text_preprocess
 
 
 class DummyTfIdf:
