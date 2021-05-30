@@ -2,7 +2,7 @@ from collections import Counter
 import numpy as np
 from tqdm import tqdm
 from typing import List, Dict, Tuple
-from utils import text_preprocess, softmax
+from utils import text_preprocess
 
 
 class DummyTfIdf:
@@ -31,7 +31,7 @@ class DummyTfIdf:
         return documents_list
 
 
-def get_probs_by_text(
+def get_scores_by_text(
     list_dicts_after_tfidf: List[Dict[str, Dict[str, float]]],
     new_text: str
 ) -> List[Tuple[str, float]]:
@@ -45,10 +45,6 @@ def get_probs_by_text(
         for w in text_preprocess(new_text):
             if w in class_tfidf_dict:
                 scores[name_class] += class_tfidf_dict[w]
-
-    probs_list = softmax(list(scores.values()))
-    classes_list = list(scores)
-    probs_dict = dict(zip(classes_list, probs_list))
-
-    sorted_probs = sorted(probs_dict.items(), key=lambda kv: kv[1], reverse=True)
-    return sorted_probs
+    
+    sorted_scores = sorted(scores.items(), key=lambda kv: kv[1], reverse=True)
+    return sorted_scores

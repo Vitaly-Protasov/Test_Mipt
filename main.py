@@ -1,6 +1,6 @@
 from parse_data import TextParser
 from utils import text_preprocess, make_df_from_files, form_corpus
-from model import DummyTfIdf, get_probs_by_text
+from model import DummyTfIdf, get_scores_by_text
 import os
 import argparse
 from typing import List
@@ -25,7 +25,7 @@ def main(queries: str, request: str):
     list_dicts = DummyTfIdf(corpus, classes).compute_tfidf_dicts()
 
     # get probs by classes
-    return get_probs_by_text(list_dicts, request)
+    return get_scores_by_text(list_dicts, request)
      
 
 if __name__ == '__main__':
