@@ -12,6 +12,12 @@ queries: List[str] = <your queries>
 parser = TextParser(queries)
 ```
 
+### Model description
+В качестве модели я выбрал подсчет TF-IDF словаря.
+* Считаем частоты слов относительно одной тематики запроса и среди всех возможных запросов.
+* При получении текстового запроса для классификации - считаем суммарный показатель частот среди всех слов запроса.
+* Ранжируем по скорам.
+
 ### Classify your text query:
 * 1) Use notebook example: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1p94bCRCVdqfh4RaRRceSTeOE4TTdcrGA?usp=sharing)
 * 2) Launch Python script: ```python main.py --request '<your request>' ```
